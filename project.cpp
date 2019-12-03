@@ -25,7 +25,7 @@ int main()
 	
 	char answer;
 	
-	cout << "What is the diameter of the cylinder in meters?"<<endl; //Get values for the dimentions of the cylinder.
+	cout << "What is the diameter of the cylinder in meters? \n(This veritical diameter will extend vertically in the y direction and in the z direction into and out of the page)"<<endl; //Get values for the dimentions of the cylinder.
 	cin >> diameter;
 	
 	while(diameter <= 0)
@@ -34,7 +34,7 @@ int main()
 		cin >> diameter;
 	}
 	
-	cout << "What is the length of the cylinder in meters?" << endl;
+	cout << "What is the length of the cylinder in meters? \n(This length will be treated as the x direction)" << endl;
 	cin >> length;
 	
 	while (length <= 0)
@@ -76,7 +76,7 @@ int main()
 		
 		while (XF1 <= 0 || XF1 > length)
 		{
-			cout << "The x value for the location of the concentrated load on the cylinder \nmust be a positive, non-zero value that is less than or equal \nto the lenth of the cylinder. \nEnter another value." << endl;
+			cout << "The x value for the location of the concentrated load on the cylinder \nmust be a positive, non-zero value that is less than or equal \nto the lenth of the cylinder. \nEnter a value between 0 and " << length << endl;
 			cin >> XF1;
 		}
 		
@@ -102,7 +102,7 @@ int main()
 			
 			while (XF2 <= 0 || XF2 > length)
 			{
-				cout << "The x value for the location of the concentrated load on the cylinder \nmust be a positive non-zero value that is less than or equal to the length of the cylinder. \nEnter another value." << endl;
+				cout << "The x value for the location of the concentrated load on the cylinder \nmust be a positive non-zero value that is less than or equal to the length of the cylinder. \nEnter a value between 0 and " << length << endl;
 				cin >> XF2;
 			}
 		}
@@ -127,7 +127,7 @@ int main()
 		
 		while (XM1 <= 0 || XM1 > length)
 		{
-			cout << "The x value for the location of the concentrated load on the cylinder must be a positive \nnon-zero value that is less than or equal to the length of the cylinder. \nEnter another value" << endl;
+			cout << "The x value for the location of the concentrated load on the cylinder must be a positive \nnon-zero value that is less than or equal to the length of the cylinder. \nEnter a value between 0 and " << length << endl;
 			cin >> XM1;
 		}
 		
@@ -150,7 +150,7 @@ int main()
 			
 			while (XM2 <= 0 || XM2 > length)
 			{
-				cout << "The x value for the location of the concentrated load on the cylinder \nmust be a positive non-zero value that is less than or equal to the lenth of the cylinder.\nEnter another value." << endl;
+				cout << "The x value for the location of the concentrated load on the cylinder \nmust be a positive non-zero value that is less than or equal to the lenth of the cylinder.\nEnter a value between 0 and " << length << endl;
 				cin >> XM2;
 			}
 		}
@@ -176,7 +176,7 @@ int main()
 		cout << "At what x value in meters does the distributed load end?" << endl;
 		cin >> XRL12;
 		
-		while(XRL11 < 0 || XRL12 < XRL12 || XRL12 > length)
+		while(XRL11 < 0 || XRL12 < XRL11 || XRL12 > length)
 		{
 			if(XRL11 < 0)
 			{
@@ -190,7 +190,7 @@ int main()
 			
 			if(XRL12 > length)
 			{
-				cout << "The distributed load cannot extend past the end of the cylinder." << endl;
+				cout << "The distributed load cannot extend past the end of the cylinder. Input a value less than "<<length<< endl;
 			}
 			
 			cout << "At what x value in meters does the distributed load begin?" << endl;
@@ -234,7 +234,7 @@ int main()
 				
 				if(XRL22 > length)
 				{
-					cout << "The distributed load cannot extend past the end of the cylinder." << endl;
+					cout << "The distributed load cannot extend past the end of the cylinder. Input a value less than "<<length<< endl;
 				}
 				
 				cout << "At what x value in meters does the distributed load begin?" << endl;
@@ -265,7 +265,7 @@ int main()
 		
 		while(XTF1 < 0 || XTF1 > length)
 		{
-			cout << "The x value for the location of the torsion force cannot \nbe less than zero or more than the length of the cylinder. \nEnter another value." << endl;
+			cout << "The x value for the location of the torsion force cannot \nbe less than zero or more than the length of the cylinder. \nEnter a value between 0 and " << length << endl;
 			cin >> XTF1;
 		}
 		
@@ -288,8 +288,7 @@ int main()
 			
 			while(XTF2 < 0 || XTF2 > length)
 			{
-				cout << "The x value for the location of the torsion force cannot \nbe less than zero or more than the length of the cylinder. \nEnter another value." << endl;
-				cin >> XTF2;
+				cout << "The x value for the location of the torsion force cannot \nbe less than zero or more than the length of the cylinder. \nEnter  a value between 0 and " << length << endl;
 			}
 		}
 	}
@@ -478,17 +477,17 @@ int main()
 
 	//Outputs important information that could to used to verify that the code is working as well as determine where it went wrong.
 	
-	cout << "The reaction force at the wall in the 'y' direction is " << FRY << "N." << endl;
+	cout << "The reaction force at the wall in the 'y' direction is " << FRY << " N." << endl;
 	
-	cout << "The reaction force at the wall in the 'x' direction is " << FRX << "N." << endl;
+	cout << "The reaction force at the wall in the 'x' direction is " << FRX << " N." << endl;
 	
-	cout << "The reaction torsion force about the 'x' axis at the wall is " << FRT << "Nm." << endl;
+	cout << "The reaction torsion force about the 'x' axis at the wall is " << FRT << " Nm." << endl;
 	
-	cout << "The reaction moment force about the 'z' axis at the wall is " << FRM << "Nm." << endl;
+	cout << "The reaction moment force about the 'z' axis at the wall is " << FRM << " Nm." << endl;
 	
-	cout << "The max normal stress in the cylinder is " << maxnormal << "Pa at " << maxnormalxlocation << " meters from the wall." << endl;
+	cout << "The max normal stress in the cylinder is " << maxnormal << " Pa at " << maxnormalxlocation << " meters from the wall." << endl;
 	
-	cout << "The max shear stress in the cylinder is " << maxshear << "Pa at " << maxshearxlocation << " meters from the wall." << endl;
+	cout << "The max shear stress in the cylinder is " << maxshear << " Pa at " << maxshearxlocation << " meters from the wall." << endl;
 	
 	if(maxnormallocation == 1)
 	{
